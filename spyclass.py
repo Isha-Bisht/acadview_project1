@@ -1,44 +1,48 @@
 from spy_details4 import spy, Spy, ChatMessage, friends
 from steganography.steganography import Steganography
 from datetime import datetime
-status_message=['hello people this is isha']
+status_message=['hello people, this is isha']
 
-question="do you want to continue as isha"
-existing=raw_input(question)
+#question="do you want to continue as isha"
+#existing=raw_input(question)
 
 def add_status():
     updated_status_message = None
+    #status_message = ['hello people this is isha']
+    if spy.status_message != None:
 
-    if spy.current_status_message != None:
+        print 'Your current status message is %s \n' % (spy.status_message)
 
-        print 'Your current status message is %s \n' % (spy.current_status_message)
-    else:
-        print 'You don\'t have any status message currently \n'
-
-    default = raw_input("Do you want to select from the older status (y/n)? ")
-
-    if default.upper() == "N":
-        new_status_message = raw_input("What status message do you want to set? ")
-
-        if len(new_status_message) > 0:
-            status_message.append(new_status_message)
-            updated_status_message = new_status_message
-
-    elif default.upper() == 'Y':
-
-        item_position = 1
-
-        for message in status_message:
-            print '%d. %s' % (item_position, message)
-            item_position = item_position + 1
-
-        message_selection = int(raw_input("\nChoose from the above messages "))
-
-        if len(status_message) >= message_selection:
-            updated_status_message = status_message[message_selection - 1]
 
     else:
-        print 'The option you chose is not valid! Press either y or n.'
+
+        #print 'You don\'t have any status message currently \n'
+        default = raw_input("Do you want to select from the older status (y/n)? ")
+        if default.upper() == "N":
+            new_status_message = raw_input("What status message do you want to set? ")
+
+            if len(new_status_message) > 0:
+                status_message.append(new_status_message)
+                updated_status_message = new_status_message
+
+        elif default.upper() == 'Y':
+
+            item_position = 1
+
+            for message in status_message:
+                print '%d. %s' % (item_position, message)
+                item_position = item_position + 1
+
+            message_selection = int(raw_input("\nChoose from the above messages "))
+
+            if len(status_message) >= message_selection:
+                updated_status_message = status_message[message_selection - 1]
+
+        else:
+            print 'The option you chose is not valid! Press either y or n.'
+
+
+
 
     if updated_status_message:
         print 'Your updated status message is: %s' % (updated_status_message)
@@ -127,11 +131,11 @@ def read_chat_history():
 
 
 def start_chat(spy):
-    if spy.age >=18 and spy.age <=60:
+    #if spy.age >=18 and spy.age <=60:
 
 
-        print "Authentication complete. Welcome " + spy.name + " age: " \
-              + str(spy.age) + " and rating of: " + str(spy.rating) + " Proud to have you onboard"
+        #print "Authentication complete. Welcome " + spy.name + " age: " \
+          #    + str(spy.age) + " and rating of: " + str(spy.rating) + " Proud to have you onboard"
 
         show_menu = True
 
@@ -155,21 +159,20 @@ def start_chat(spy):
                     read_chat_history()
                 else:
                     show_menu = False
-    else:
-        print 'Sorry you are not of the correct age to be a spy'
-if existing == "Y":
-    start_chat(spy)
-else:
-    spy = Spy('',0,0.0)
-    spy.name = raw_input("Welcome to spy chat, you must tell me your spy name first: ")
-    if len(spy.name) > 0:
-        spy.age = raw_input("What is your age?")
-        spy.age = int(spy.age)
-        spy.rating = raw_input("What is your spy rating?")
-        spy.rating = float(spy.rating)
-        start_chat(spy)
-    else:
-        print 'Please add a valid spy name'
+    #else:
+      #  print 'Sorry you are not of the correct age to be a spy'
+
+start_chat(spy)
+#else:
+   # spy = Spy('',0,0.0)
+    #spy.name = raw_input("Welcome to spy chat, you must tell me your spy name first: ")
+    #   spy.age = raw_input("What is your age?")
+
+     #   spy.age = int(spy.age)
+      # spy.rating = float(spy.rating)
+       # start_chat(spy)
+    #else:
+      #  print 'Please add a valid spy name'
 
 
 
