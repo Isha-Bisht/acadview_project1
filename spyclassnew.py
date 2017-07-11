@@ -3,12 +3,10 @@ from steganography.steganography import Steganography
 from datetime import datetime
 status_message=['hello people, this is isha']
 
-#question="do you want to continue as isha"
-#existing=raw_input(question)
 
-def add_status():
+def add_status(): #function defined to add a new status or choose from old status or default
     updated_status_message = None
-    #status_message = ['hello people this is isha']
+
     if spy.status_message != None:
 
         print 'Your current status message is %s \n' % (spy.status_message)
@@ -51,7 +49,7 @@ def add_status():
 
     return updated_status_message
 
-def add_friend():
+def add_friend(): #function defined to add friends in our list
 
     new_friend = Spy('',0,0.0)
 
@@ -71,7 +69,7 @@ def add_friend():
     return len(friends)
 
 
-def select_a_friend():
+def select_a_friend(): #function defined to select a friend from the friend list
     item_number = 0
 
     for friend in friends:
@@ -85,7 +83,7 @@ def select_a_friend():
 
     return friend_choice_position
 
-def send_message():
+def send_message(): #function defined to send the encrypted message to any friend
 
     friend_choice = select_a_friend()
 
@@ -101,7 +99,7 @@ def send_message():
     print "Your secret message image is ready!"
 
 
-def read_message():
+def read_message(): #function defined to read the secret message recieved by some friend
 
     sender = select_a_friend()
 
@@ -116,7 +114,7 @@ def read_message():
     print "Your secret message has been saved!"
 
 
-def read_chat_history():
+def read_chat_history(): #function defined to read the chat history
 
     read_for = select_a_friend()
 
@@ -130,7 +128,7 @@ def read_chat_history():
 
 
 
-def start_chat(spy):
+def start_chat(spy): #function defined to start the chat and all the functions are called here
     #if spy.age >=18 and spy.age <=60:
 
 
@@ -159,20 +157,10 @@ def start_chat(spy):
                     read_chat_history()
                 else:
                     show_menu = False
-    #else:
-      #  print 'Sorry you are not of the correct age to be a spy'
 
-start_chat(spy)
-#else:
-   # spy = Spy('',0,0.0)
-    #spy.name = raw_input("Welcome to spy chat, you must tell me your spy name first: ")
-    #   spy.age = raw_input("What is your age?")
 
-     #   spy.age = int(spy.age)
-      # spy.rating = float(spy.rating)
-       # start_chat(spy)
-    #else:
-      #  print 'Please add a valid spy name'
+start_chat(spy) #callling to function start_chat()
+
 
 
 
